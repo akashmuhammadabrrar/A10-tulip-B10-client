@@ -1,18 +1,37 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../layouts/HomeLayout";
+import AllCampaign from "../pages/AllCampaign";
+import AddCampaign from "../pages/AddCampaign";
+import MyCampaign from "../pages/MyCampaign";
+import MyDonation from "../pages/MyDonation";
+import MainLayout from "../layouts/MainLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeLayout></HomeLayout>,
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <HomeLayout></HomeLayout>,
+      },
+    ],
   },
   {
-    path: "/campaign",
-    element: <h2>Campaign page</h2>,
+    path: "/allCampaigns",
+    element: <AllCampaign></AllCampaign>,
   },
   {
-    path: "/auth",
-    element: <h2>Login here</h2>,
+    path: "/addCampaign",
+    element: <AddCampaign></AddCampaign>,
+  },
+  {
+    path: "/myCampaign",
+    element: <MyCampaign></MyCampaign>,
+  },
+  {
+    path: "/myDonation",
+    element: <MyDonation></MyDonation>,
   },
   {
     path: "*",

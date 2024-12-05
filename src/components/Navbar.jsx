@@ -14,28 +14,28 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/"
+          to="/allCampaigns"
           className="btn  btn-outline border-none  btn-warning text-white font-bold">
           All Campaigns
         </NavLink>
       </li>
       <li>
         <NavLink
-          to="/"
+          to="/addCampaign"
           className="ml-6 btn btn-outline border-none btn-warning text-white font-bold">
           Add New Campaign
         </NavLink>
       </li>
       <li>
         <NavLink
-          to="/"
+          to="/myCampaign"
           className="ml-6 btn btn-outline border-none btn-warning text-white font-bold">
           My Campaign
         </NavLink>
       </li>
       <li>
         <NavLink
-          to="/"
+          to="/myDonation"
           className="ml-6 btn btn-outline border-none btn-warning text-white font-bold">
           My Donations
         </NavLink>
@@ -44,7 +44,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-[#000080]">
+    <div className="navbar bg-[#000080] fixed z-50 top-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
