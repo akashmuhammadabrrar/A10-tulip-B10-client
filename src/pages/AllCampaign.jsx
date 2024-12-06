@@ -2,8 +2,10 @@ import React from "react";
 
 const AllCampaign = () => {
   return (
-    <div>
-      <h2>All Campaign Page</h2>
+    <div className="pt-16">
+      <h2 className="flex justify-center items-center text-center text-5xl ">
+        All Campaign Page
+      </h2>
     </div>
   );
 };

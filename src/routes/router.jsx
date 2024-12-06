@@ -15,24 +15,25 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomeLayout></HomeLayout>,
       },
+      {
+        path: "/addCampaign",
+        element: <AddCampaign></AddCampaign>,
+      },
+      {
+        path: "/allCampaigns",
+        element: <AllCampaign></AllCampaign>,
+      },
+      {
+        path: "/myCampaign",
+        element: <MyCampaign></MyCampaign>,
+      },
+      {
+        path: "/myDonation",
+        element: <MyDonation></MyDonation>,
+      },
     ],
   },
-  {
-    path: "/allCampaigns",
-    element: <AllCampaign></AllCampaign>,
-  },
-  {
-    path: "/addCampaign",
-    element: <AddCampaign></AddCampaign>,
-  },
-  {
-    path: "/myCampaign",
-    element: <MyCampaign></MyCampaign>,
-  },
-  {
-    path: "/myDonation",
-    element: <MyDonation></MyDonation>,
-  },
+
   {
     path: "*",
     element: <h2>Wrong Road!</h2>,
