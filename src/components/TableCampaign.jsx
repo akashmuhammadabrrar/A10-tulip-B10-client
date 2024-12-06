@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TableCampaign = ({ campaign }) => {
-  const { title, name, photo, email } = campaign;
+  const { _id, title, name, photo, email } = campaign;
 
   return (
     <div className="overflow-x-auto">
@@ -35,7 +36,9 @@ const TableCampaign = ({ campaign }) => {
             </td>
             <td>{email}</td>
             <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+              <Link to={`/details/${_id}`} className="btn btn-ghost btn-xs">
+                See More
+              </Link>
             </th>
           </tr>
         </tbody>

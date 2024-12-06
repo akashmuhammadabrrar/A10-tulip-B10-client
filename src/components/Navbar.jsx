@@ -14,7 +14,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/allCampaigns"
+          to="/campaigns"
           className="btn  btn-outline border-none  btn-warning text-white font-bold">
           All Campaigns
         </NavLink>
