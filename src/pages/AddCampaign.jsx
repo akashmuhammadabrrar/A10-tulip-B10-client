@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const AddCampaign = () => {
   const handleAddCampaign = (e) => {
@@ -12,7 +13,7 @@ const AddCampaign = () => {
     const amount = form.amount.value;
     const description = form.description.value;
     const deadline = form.deadline.value;
-    const allField = {
+    const newCampaign = {
       name,
       email,
       photo,
@@ -22,7 +23,28 @@ const AddCampaign = () => {
       description,
       deadline,
     };
-    console.log(allField);
+    console.log(newCampaign);
+
+    // send data to the server
+    fetch("http://localhost:5000/campaigns", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCampaign),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Item Added Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
   };
 
   return (
