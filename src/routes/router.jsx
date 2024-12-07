@@ -6,6 +6,8 @@ import MyCampaign from "../pages/MyCampaign";
 import MyDonation from "../pages/MyDonation";
 import MainLayout from "../layouts/MainLayout";
 import Details from "../pages/Details";
+import Login from "../pages/Login";
+import Registration from "../pages/Registration";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +44,14 @@ const router = createBrowserRouter([
       },
     ],
   },
-
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+  {
+    path: "/registration",
+    element: <Registration></Registration>,
+  },
   {
     path: "*",
     element: <h2>Wrong Road!</h2>,
