@@ -1,7 +1,8 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const Details = () => {
+  const navigate = useNavigate();
   const data = useLoaderData();
 
   const { title, name, photo, email, description, deadline } = data;
@@ -16,6 +17,8 @@ const Details = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        navigate("/");
+        alert("Donation success");
         console.log(data);
       });
   };

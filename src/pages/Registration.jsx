@@ -4,7 +4,8 @@ import Navbar from "../components/Navbar";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Registration = () => {
-  const { createNewUser, setUser, updateUser } = useContext(AuthContext);
+  const { createNewUser, setUser, updateUser, handleWithGoogleSignIn } =
+    useContext(AuthContext);
 
   const handelSubmit = (e) => {
     e.preventDefault();
@@ -108,6 +109,11 @@ const Registration = () => {
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Submit</button>
+                <button
+                  onClick={handleWithGoogleSignIn}
+                  className="btn btn-accent mt-2">
+                  Google SingIn
+                </button>
               </div>
             </form>
           </div>
