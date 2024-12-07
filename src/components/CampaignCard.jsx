@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CampaignCard = ({ campaign }) => {
-  const { name, email, photo, title, type, deadline, description } = campaign;
+  const { _id, name, email, photo, title, type, deadline, description } =
+    campaign;
+
   return (
     <div className="card bg-base-100 w-80  shadow-xl">
       <figure className="px-10 pt-10">
@@ -22,7 +24,9 @@ const CampaignCard = ({ campaign }) => {
           <span className="font-bold">Type: {deadline}</span>: {description}
         </p>
         <div className="card-actions">
-          <Link to="/" className="btn btn-primary text-white bg-[#000080]">
+          <Link
+            to={`/details/${_id}`}
+            className="btn btn-primary text-white bg-[#000080]">
             See More
           </Link>
         </div>

@@ -4,20 +4,26 @@ import Navbar from "../components/Navbar";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Registration = () => {
-  const { createNewUser } = useContext(AuthContext);
+  const { createNewUser, setUser, updateUser } = useContext(AuthContext);
 
   const handelSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
+
     // get form data
-    const form = new FormData(e.target);
-    const name = form.get("name");
-    const email = form.get("email");
-    const password = form.get("password");
-    const photo = form.get("photo");
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const photo = formData.get("photo");
     console.log({ name, email, password, photo });
     createNewUser(email, password)
       .then((result) => {
         const user = result.user;
+        updateUser(name, photo);
+        setUser(user);
+        form.reset();
+        alert("Registration Success");
         console.log(user);
       })
       .catch((error) => {
@@ -101,7 +107,7 @@ const Registration = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>

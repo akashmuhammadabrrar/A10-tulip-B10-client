@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AddCampaign = () => {
+  const { user, userLogin } = useContext(AuthContext);
+  console.log(user);
+
   const handleAddCampaign = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -59,6 +63,8 @@ const AddCampaign = () => {
             <label className="block text-gray-700">User Name</label>
             <input
               type="text"
+              defaultValue={user?.displayName}
+              readOnly
               name="name"
               className="w-full px-3 py-2 border rounded-md bg-gray-100"
             />
@@ -68,6 +74,8 @@ const AddCampaign = () => {
             <label className="block text-gray-700">User Email</label>
             <input
               type="email"
+              defaultValue={user?.email}
+              readOnly
               name="email"
               className="w-full px-3 py-2 border rounded-md bg-gray-100"
             />

@@ -3,8 +3,22 @@ import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
   const data = useLoaderData();
-  const { title, name, photo, email, description, deadline } = data;
 
+  const { title, name, photo, email, description, deadline } = data;
+  const donateData = { title, name, photo, email, description, deadline };
+  const handleDonate = () => {
+    fetch("http://localhost:5000/myDonate", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(donateData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <div className="mt-20">
       <h2 className="text-2xl font-semibold text-center">
@@ -14,11 +28,13 @@ const Details = () => {
         <div className="hero-content flex-col lg:flex-row">
           <img src={photo} className="max-w-sm rounded-lg shadow-2xl" />
           <div>
-            <h1 className="text-5xl font-bold">{title}</h1>
+            <h1 className="text-3xl font-bold">{title}</h1>
             <p className="py-6">{description}</p>
             <p className="py-6">Email: {email}</p>
             <p className="py-6">Deadline: {deadline}</p>
-            <button className="btn btn-primary">Donate Now</button>
+            <button onClick={handleDonate} className="btn btn-primary">
+              Donate Now
+            </button>
           </div>
         </div>
       </div>

@@ -8,6 +8,8 @@ import MainLayout from "../layouts/MainLayout";
 import Details from "../pages/Details";
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
+import PrivetRoute from "./PrivetRoute";
+import { auth } from "../firebase/firebase.init";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +19,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomeLayout></HomeLayout>,
-        loader: () => fetch("http://localhost:5000/campaigns"),
+        loader: () => fetch("http://localhost:5000/runningCampaign"),
       },
       {
         path: "/addCampaign",
-        element: <AddCampaign></AddCampaign>,
+        element: (
+          <PrivetRoute>
+            <AddCampaign></AddCampaign>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/campaigns",
@@ -35,10 +41,16 @@ const router = createBrowserRouter([
       {
         path: "/myDonation",
         element: <MyDonation></MyDonation>,
+        loader: () =>
+          fetch(`http://localhost:5000/myDonate/${auth?.currentUser?.email}`),
       },
       {
         path: "/details/:id",
-        element: <Details></Details>,
+        element: (
+          <PrivetRoute>
+            <Details></Details>
+          </PrivetRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/details/${params.id}`),
       },
