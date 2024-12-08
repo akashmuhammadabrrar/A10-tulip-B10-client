@@ -39,6 +39,11 @@ const TableCampaign = ({ campaign }) => {
               <Link to={`/details/${_id}`} className="btn btn-ghost btn-xs">
                 See More
               </Link>
+              <Link
+                to={`/updateCampaign/${_id}`}
+                className="btn btn-ghost btn-xs">
+                Update
+              </Link>
             </th>
           </tr>
         </tbody>

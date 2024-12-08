@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user?.photoURL);
 
   const links = (
     <>
@@ -49,6 +50,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-[#000080] fixed z-50 top-0">
       <div className="navbar-start">
+        <div className="text-white">{user?.displayName}</div>
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg

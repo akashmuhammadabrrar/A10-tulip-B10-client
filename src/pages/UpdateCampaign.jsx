@@ -1,12 +1,24 @@
 import React, { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 
-const AddCampaign = () => {
-  const { user, userLogin } = useContext(AuthContext);
-  console.log(user);
+const UpdateCampaign = () => {
+  const campaigns = useLoaderData();
+  const { user } = useContext(AuthContext);
+  const {
+    _id,
+    name,
+    amount,
+    email,
+    photo,
+    title,
+    type,
+    deadline,
+    description,
+  } = campaigns;
 
-  const handleAddCampaign = (e) => {
+  const handleUpdateCampaign = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -17,33 +29,34 @@ const AddCampaign = () => {
     const amount = form.amount.value;
     const description = form.description.value;
     const deadline = form.deadline.value;
-    const newCampaign = {
+    const updatedCampaign = {
       name,
       email,
       photo,
       title,
       type,
+      type,
       amount,
       description,
       deadline,
     };
-    console.log(newCampaign);
+    console.log(updatedCampaign);
 
     // send data to the server
-    fetch("http://localhost:5000/campaigns", {
-      method: "POST",
+    fetch(`http://localhost:5000/campaigns/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newCampaign),
+      body: JSON.stringify(updatedCampaign),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
-            title: "Success!",
-            text: "Item Added Successfully",
+            title: "Update Success!",
+            text: "Campaign Updated Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -55,9 +68,9 @@ const AddCampaign = () => {
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-md mt-16 py-10">
       <h2 className="text-2xl font-bold mb-4 text-center mt-4">
-        Add New Campaign
+        Update The Campaign: {title}
       </h2>
-      <form onSubmit={handleAddCampaign}>
+      <form onSubmit={handleUpdateCampaign}>
         <div className="grid grid-cols-2 gap-4">
           {/* Name */}
           <div className="mb-4 col-span-2 sm:col-span-1">
@@ -87,6 +100,7 @@ const AddCampaign = () => {
             <input
               type="text"
               name="photo"
+              defaultValue={photo}
               className="w-full px-3 py-2 border rounded-md"
               placeholder="Enter image URL"
             />
@@ -97,6 +111,7 @@ const AddCampaign = () => {
             <input
               type="text"
               name="title"
+              defaultValue={title}
               className="w-full px-3 py-2 border rounded-md"
               placeholder="Enter campaign title"
             />
@@ -104,7 +119,10 @@ const AddCampaign = () => {
           {/* types */}
           <div className="mb-4 col-span-2 sm:col-span-1">
             <label className="block text-gray-700">Campaign Type</label>
-            <select name="type" className="w-full px-3 py-2 border rounded-md">
+            <select
+              name="type"
+              defaultValue={type}
+              className="w-full px-3 py-2 border rounded-md">
               <option value="Community">Donation For Winter</option>
               <option value="startup">Startup It</option>
               <option value="sports">Sports</option>
@@ -121,6 +139,7 @@ const AddCampaign = () => {
             <input
               type="number"
               name="amount"
+              defaultValue={amount}
               className="w-full px-3 py-2 border rounded-md"
               placeholder="Enter minimum donation amount"
             />
@@ -130,6 +149,7 @@ const AddCampaign = () => {
             <label className="block text-gray-700">Description</label>
             <textarea
               name="description"
+              defaultValue={description}
               className="w-full px-3 py-2 border rounded-md"
               placeholder="Enter description"></textarea>
           </div>
@@ -139,6 +159,7 @@ const AddCampaign = () => {
             <input
               type="date"
               name="deadline"
+              defaultValue={deadline}
               className="w-full px-3 py-2 border rounded-md"
             />
           </div>
@@ -155,4 +176,4 @@ const AddCampaign = () => {
   );
 };
 
-export default AddCampaign;
+export default UpdateCampaign;

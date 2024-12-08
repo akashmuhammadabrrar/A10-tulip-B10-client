@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import PrivetRoute from "./PrivetRoute";
 import { auth } from "../firebase/firebase.init";
+import UpdateCampaign from "../pages/UpdateCampaign";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,16 @@ const router = createBrowserRouter([
         element: (
           <PrivetRoute>
             <Details></Details>
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/details/${params.id}`),
+      },
+      {
+        path: "/updateCampaign/:id",
+        element: (
+          <PrivetRoute>
+            <UpdateCampaign></UpdateCampaign>
           </PrivetRoute>
         ),
         loader: ({ params }) =>
