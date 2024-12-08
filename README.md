@@ -1,8 +1,19 @@
-# React + Vite
+# Crowd Bloom
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Summary And Purposes
 
-Currently, two official plugins are available:
+This website is made for campaigning for several entrepreneurship. If anybody need to receive donation or giving donation they can do it here. The user need to create an account first then he/she can adding their campaigns and giving donate as well.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Key Features Uses To Build This Project
+
+- React Router Dom
+- Use Context
+- Google Auth Provider Authenticated By Firebase
+- UseNavigate and Link
+- Use state and useEffect hooks
+- For backend I am used express mongodb for database.
+- Javascript collaborated with other library (daisyUI,Animate.css,etc)
+
+### Live Link Deploy On Firebase:
+
+- [Crowd Bloom](https://donation-tuilip-auth.web.app/)
