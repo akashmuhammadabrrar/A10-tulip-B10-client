@@ -11,6 +11,7 @@ import Registration from "../pages/Registration";
 import PrivetRoute from "./PrivetRoute";
 import { auth } from "../firebase/firebase.init";
 import UpdateCampaign from "../pages/UpdateCampaign";
+import Error from "../pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomeLayout></HomeLayout>,
-        loader: () => fetch("http://localhost:5000/runningCampaign"),
+        loader: () => fetch("http://localhost:5000/campaigns"),
       },
       {
         path: "/addCampaign",
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myDonation",
+        path: "/myDonations",
         element: (
           <PrivetRoute>
             <MyDonation></MyDonation>
@@ -85,7 +86,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h2>Wrong Road!</h2>,
+    element: <Error></Error>,
   },
 ]);
 

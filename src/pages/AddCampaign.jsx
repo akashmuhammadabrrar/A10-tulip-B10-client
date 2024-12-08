@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const AddCampaign = () => {
   const { user, userLogin } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleAddCampaign = (e) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ const AddCampaign = () => {
       description,
       deadline,
     };
-    console.log(newCampaign);
+    // console.log(newCampaign);
 
     // send data to the server
     fetch("http://localhost:5000/campaigns", {

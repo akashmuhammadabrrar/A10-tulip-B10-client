@@ -40,7 +40,7 @@ const UpdateCampaign = () => {
       description,
       deadline,
     };
-    console.log(updatedCampaign);
+    // console.log(updatedCampaign);
 
     // send data to the server
     fetch(`http://localhost:5000/campaigns/${_id}`, {
@@ -52,7 +52,7 @@ const UpdateCampaign = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Update Success!",

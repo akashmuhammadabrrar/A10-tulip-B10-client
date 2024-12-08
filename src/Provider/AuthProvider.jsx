@@ -15,15 +15,15 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(loading, user);
+  // console.log(loading, user);
   //  create an account
   const createNewUser = (email, password) => {
-    // setLoading(true);
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   //   login with email and password
   const userLogin = (email, password) => {
-    setLoading(false);
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   const updateUser = (name, photo) => {
@@ -37,10 +37,10 @@ const AuthProvider = ({ children }) => {
   const handleWithGoogleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
   //   log out
@@ -63,10 +63,10 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
-      setLoading(false);
     };
   }, []);
 

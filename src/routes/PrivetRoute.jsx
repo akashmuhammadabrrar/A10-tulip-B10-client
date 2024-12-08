@@ -8,7 +8,6 @@ const PrivetRoute = ({ children }) => {
   if (loading) {
     return <Loading></Loading>;
   }
-
   if (user && user?.email) {
     return children;
   }

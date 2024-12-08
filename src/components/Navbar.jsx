@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user?.photoURL);
+  // console.log(user?.photoURL);
 
   const links = (
     <>
@@ -39,7 +39,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/myDonation"
+          to="/myDonations"
           className="ml-6 btn btn-outline border-none btn-warning text-white font-bold">
           My Donations
         </NavLink>

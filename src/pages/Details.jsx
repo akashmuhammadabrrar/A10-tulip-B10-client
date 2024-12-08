@@ -19,7 +19,7 @@ const Details = () => {
       .then((data) => {
         navigate("/");
         alert("Donation success");
-        console.log(data);
+        // console.log(data);
       });
   };
   return (
