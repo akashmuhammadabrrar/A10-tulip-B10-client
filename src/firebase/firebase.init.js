@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC-fGr9OIRDRdwCNEIGMqeAwdXE9lZtJ2A",
-  authDomain: "donation-tuilip-auth.firebaseapp.com",
-  projectId: "donation-tuilip-auth",
-  storageBucket: "donation-tuilip-auth.firebasestorage.app",
-  messagingSenderId: "861943111494",
-  appId: "1:861943111494:web:66cdf23a479ebfcaa54f47",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

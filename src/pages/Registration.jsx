@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Registration = () => {
+  const navigate = useNavigate();
   const { createNewUser, setUser, updateUser, handleWithGoogleSignIn } =
     useContext(AuthContext);
 
@@ -24,6 +25,7 @@ const Registration = () => {
         updateUser(name, photo);
         setUser(user);
         form.reset();
+        navigate("/");
         alert("Registration Success");
         console.log(user);
       })

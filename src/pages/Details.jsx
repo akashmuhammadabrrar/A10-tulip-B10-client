@@ -5,7 +5,7 @@ const Details = () => {
   const navigate = useNavigate();
   const data = useLoaderData();
 
-  const { title, name, photo, email, description, deadline } = data;
+  const { title, name, photo, email, description, deadline, amount } = data;
   const donateData = { title, name, photo, email, description, deadline };
   const handleDonate = () => {
     fetch("http://localhost:5000/myDonate", {
@@ -34,6 +34,7 @@ const Details = () => {
             <h1 className="text-3xl font-bold">{title}</h1>
             <p className="py-6">{description}</p>
             <p className="py-6">Email: {email}</p>
+            <p className="py-6">Amount: {amount}</p>
             <p className="py-6">Deadline: {deadline}</p>
             <button onClick={handleDonate} className="btn btn-primary">
               Donate Now
