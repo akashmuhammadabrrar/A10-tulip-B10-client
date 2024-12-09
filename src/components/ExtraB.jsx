@@ -1,4 +1,5 @@
 import React from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 const ExtraB = () => {
   return (
@@ -6,7 +7,14 @@ const ExtraB = () => {
       <div className="hero-content flex-col lg:flex-row">
         <div>
           <h1 className="text-5xl font-bold">
-            Unite All The Entrepreneur Here!
+            <Typewriter
+              words={["Unite All The Entrepreneur Here!"]}
+              loop={5}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}></Typewriter>
           </h1>
           <p className="py-6">
             Crowdfunding is a collaborative way to raise funds online for

@@ -5,6 +5,7 @@ import Heading from "../pages/Heading";
 import ExtraB from "../components/ExtraB";
 import { useLoaderData } from "react-router-dom";
 import CampaignCard from "../components/CampaignCard";
+import { Typewriter } from "react-simple-typewriter";
 
 const HomeLayout = () => {
   const campaigns = useLoaderData();
@@ -20,7 +21,16 @@ const HomeLayout = () => {
           subtitle={
             "They All Are Young Entrepreneur. They Needs Funding For Raise Up Those Organizations. Your Donation Would Be Great Bless For All OF Them"
           }></Heading>
-        <h2 className="text-4xl text-center">Running Campaign</h2>
+        <h2 className="text-4xl text-center">
+          <Typewriter
+            words={["Running Campaign"]}
+            loop={5}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}></Typewriter>
+        </h2>
         <div className="py-8 space-y-4 container mx-auto grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1">
           {remainingCampaign?.map((campaign) => (
             <CampaignCard key={campaign._id} campaign={campaign}></CampaignCard>

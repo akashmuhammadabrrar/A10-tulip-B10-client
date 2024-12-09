@@ -38,6 +38,7 @@ const AuthProvider = ({ children }) => {
     signInWithPopup(auth, provider)
       .then((result) => {
         // console.log(result);
+        alert("signup with google success");
       })
       .catch((error) => {
         // console.log(error);

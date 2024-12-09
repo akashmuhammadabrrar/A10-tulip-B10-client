@@ -3,7 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { AuthContext } from "../Provider/AuthProvider";
 
-const Navbar = () => {
+// theme={theme} setTheme={setTheme}
+
+const Navbar = ({ theme, setTheme }) => {
   const { user, logOut } = useContext(AuthContext);
   // console.log(user?.displayName);
 
@@ -37,7 +39,7 @@ const Navbar = () => {
           My Campaign
         </NavLink>
       </li>
-      <li>
+      <li className="">
         <NavLink
           to="/myDonations"
           className="ml-6 btn btn-outline border-none btn-warning text-white font-bold">
@@ -81,6 +83,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
+        <input
+          onClick={() => setTheme(!theme)}
+          type="checkbox"
+          className="toggle"
+          defaultChecked
+        />
       </div>
       <div className="navbar-end">
         {user && user?.email ? (
