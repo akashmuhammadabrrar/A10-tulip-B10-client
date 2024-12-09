@@ -1,5 +1,7 @@
 import React from "react";
+import Lottie from "react-lottie-player";
 import { Link } from "react-router-dom";
+import animationLot from "../assets/ani/Animation - 1733745675560.json";
 
 const CampaignCard = ({ campaign }) => {
   const { _id, name, email, photo, title, type, deadline, description } =
@@ -11,6 +13,13 @@ const CampaignCard = ({ campaign }) => {
         <img src={photo} alt="Shoes" className="rounded-xl" />
       </figure>
       <div className="card-body items-start text-start">
+        <Lottie
+          animationData={animationLot}
+          loop={true}
+          autoplay={true}
+          style={{ height: "150px", width: "150px" }}
+        />
+
         <h2 className="text-xl font-bold">
           {" "}
           <span className="">title</span>:{title.slice(0, 20)}..
@@ -21,7 +30,11 @@ const CampaignCard = ({ campaign }) => {
         </p>
         <p>
           {" "}
-          <span className="font-bold">Type: {deadline}</span>: {description}
+          <span className="font-bold">Deadline: </span>: {deadline}
+        </p>
+        <p>
+          {" "}
+          <span className="font-bold">Name: </span>: {name}
         </p>
         <div className="card-actions">
           <Link
