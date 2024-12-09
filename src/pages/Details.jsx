@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Details = () => {
   const navigate = useNavigate();
   const data = useLoaderData();
+  const { user } = useContext(AuthContext);
 
   const { title, name, photo, email, description, deadline, amount } = data;
-  const donateData = { title, name, photo, email, description, deadline };
+  const donateData = {
+    title,
+    name: user?.displayName,
+    photo,
+    email: user?.email,
+    description,
+    deadline,
+  };
   const handleDonate = () => {
-    fetch("http://localhost:5000/myDonate", {
+    fetch("https://assignment-10-tuilip-server.vercel.app/myDonate", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -30,7 +30,7 @@ const AddCampaign = () => {
     // console.log(newCampaign);
 
     // send data to the server
-    fetch("http://localhost:5000/campaigns", {
+    fetch("https://assignment-10-tuilip-server.vercel.app/campaigns", {
       method: "POST",
       headers: {
         "content-type": "application/json",

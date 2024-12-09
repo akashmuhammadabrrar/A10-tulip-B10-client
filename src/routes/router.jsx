@@ -21,7 +21,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomeLayout></HomeLayout>,
-        loader: () => fetch("http://localhost:5000/campaigns"),
+        loader: () =>
+          fetch("https://assignment-10-tuilip-server.vercel.app/campaigns"),
       },
       {
         path: "/addCampaign",
@@ -34,7 +35,8 @@ const router = createBrowserRouter([
       {
         path: "/campaigns",
         element: <AllCampaign></AllCampaign>,
-        loader: () => fetch("http://localhost:5000/campaigns"),
+        loader: () =>
+          fetch("https://assignment-10-tuilip-server.vercel.app/campaigns"),
       },
       {
         path: "/myCampaign",
@@ -52,7 +54,9 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: () =>
-          fetch(`http://localhost:5000/myDonate/${auth?.currentUser?.email}`),
+          fetch(
+            `https://assignment-10-tuilip-server.vercel.app/myDonate/${auth?.currentUser?.email}`
+          ),
       },
       {
         path: "/details/:id",
@@ -62,7 +66,9 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(
+            `https://assignment-10-tuilip-server.vercel.app/details/${params.id}`
+          ),
       },
       {
         path: "/updateCampaign/:id",
@@ -72,7 +78,9 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(
+            `https://assignment-10-tuilip-server.vercel.app/details/${params.id}`
+          ),
       },
     ],
   },

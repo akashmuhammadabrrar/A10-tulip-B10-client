@@ -11,7 +11,7 @@ const MyCampaign = () => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:5000/campaigns")
+    fetch("https://assignment-10-tuilip-server.vercel.app/campaigns")
       .then((res) => res.json())
       .then((data) => setCampaign(data));
   }, [campaign]);
