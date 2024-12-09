@@ -2,7 +2,7 @@
 
 ## Summary And Purposes
 
-This website is made for campaigning for several entrepreneurship. If anybody need to receive donation or giving donation they can do it here. The user need to create an account first then he/she can adding their campaigns and giving donate as well.
+This website is made for campaigning for several entrepreneurship. If anybody need to receive donation or giving donation they can do it here. The user need to create an account first then he/she can adding their campaigns and giving donate as well.User can update read and delete a campaign.
 
 ### Key Features Uses To Build This Project
 

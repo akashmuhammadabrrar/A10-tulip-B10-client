@@ -43,16 +43,13 @@ const UpdateCampaign = () => {
     // console.log(updatedCampaign);
 
     // send data to the server
-    fetch(
-      `https://assignment-10-tuilip-server.vercel.app/campaigns/campaigns/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedCampaign),
-      }
-    )
+    fetch(`https://assignment-10-tuilip-server.vercel.app/campaigns/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedCampaign),
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
